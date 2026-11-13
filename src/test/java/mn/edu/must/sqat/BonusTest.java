@@ -58,4 +58,12 @@ class BonusTest {
     void du5_sixStreakExactThreshold() {
         assertEquals(8, DataFlowTargets.bonus(new int[] {1, 1, 1, 1, 1, 1}, 6));
     }
+
+    // ---------- Part C: kills mutant M2 (best = present) ----------
+
+    @Test
+    @DisplayName("DU6 bonus({1,1,1,0,1,1},5)=5: present=5 but best=3, so the values at best(43->53F) differ from present; streak(46->41), best(43->42F)")
+    void du6_streakBrokenInMiddle() {
+        assertEquals(5, DataFlowTargets.bonus(new int[] {1, 1, 1, 0, 1, 1}, 5));
+    }
 }
